@@ -1,0 +1,598 @@
+.admin-certificates-page {
+  padding: 32px;
+}
+
+/* Header */
+
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 30px;
+
+  margin-bottom: 30px;
+}
+
+.admin-page-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--accent);
+
+  font-size: 0.75rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.admin-page-header h1 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 2rem;
+
+  margin-bottom: 8px;
+}
+
+.admin-page-header p {
+  max-width: 650px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.6;
+}
+
+/* Primary */
+
+.admin-primary-button {
+  border: none;
+
+  background: var(--accent);
+
+  color: #111827;
+
+  padding: 12px 18px;
+
+  border-radius: 8px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-primary-button:hover {
+  background: var(--accent-hover);
+
+  transform: translateY(-2px);
+}
+
+.admin-primary-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+/* Summary */
+
+.certificate-summary {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 18px 24px;
+
+  margin-bottom: 35px;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+}
+
+.certificate-summary > svg {
+  color: var(--accent);
+
+  font-size: 2rem;
+}
+
+.certificate-summary div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.certificate-summary strong {
+  font-size: 1.5rem;
+}
+
+.certificate-summary span {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+/* Grid */
+
+.certificates-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+/* Card */
+
+.certificate-card {
+  overflow: hidden;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--accent);
+}
+
+/* Image */
+
+.certificate-image {
+  height: 240px;
+
+  overflow: hidden;
+
+  background: var(--bg-secondary);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 12px;
+}
+
+.certificate-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  display: block;
+
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-image img {
+  transform: scale(1.04);
+}
+
+.certificate-image-placeholder {
+  height: 240px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--bg-secondary);
+
+  color: var(--accent);
+
+  font-size: 3.5rem;
+}
+
+/* Content */
+
+.certificate-content {
+  padding: 22px;
+}
+
+.certificate-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.certificate-card-top svg {
+  color: var(--accent);
+}
+
+.certificate-card-top span {
+  color: var(--text-secondary);
+
+  font-size: 0.8rem;
+}
+
+.certificate-content h2 {
+  font-family: "Space Grotesk", sans-serif;
+
+  font-size: 1.25rem;
+
+  margin-bottom: 6px;
+}
+
+.certificate-content h3 {
+  color: var(--accent);
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  margin-bottom: 12px;
+}
+
+.certificate-content p {
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+/* Credential */
+
+.credential-id {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  margin-top: 16px;
+
+  padding: 12px;
+
+  background: var(--bg-secondary);
+
+  border-radius: 8px;
+}
+
+.credential-id strong {
+  font-size: 0.75rem;
+
+  color: var(--text-secondary);
+}
+
+.credential-id span {
+  word-break: break-all;
+
+  font-size: 0.85rem;
+}
+
+/* Verification link */
+
+.certificate-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 15px;
+
+  color: var(--accent);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.certificate-link:hover {
+  text-decoration: underline;
+}
+
+/* Actions */
+
+.certificate-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.edit-button,
+.delete-button,
+.cancel-button {
+  border: 1px solid var(--border);
+
+  padding: 9px 14px;
+
+  border-radius: 7px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  font-weight: 600;
+}
+
+.edit-button {
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+}
+
+.edit-button:hover {
+  color: var(--accent);
+
+  border-color: var(--accent);
+}
+
+.delete-button {
+  background: transparent;
+
+  color: #ef4444;
+}
+
+.delete-button:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* States */
+
+.admin-state {
+  min-height: 250px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  color: var(--text-secondary);
+
+  text-align: center;
+}
+
+.admin-state.empty svg {
+  color: var(--accent);
+
+  font-size: 3rem;
+}
+
+.admin-state h3 {
+  color: var(--text-primary);
+}
+
+/* Modal */
+
+.certificate-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.75);
+
+  overflow-y: auto;
+}
+
+.certificate-modal {
+  width: min(700px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: var(--bg-card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+}
+
+/* Modal header */
+
+.certificate-modal-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  padding: 24px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.certificate-modal-header span {
+  color: var(--accent);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+.certificate-modal-header h2 {
+  margin-top: 6px;
+
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.modal-close {
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-size: 1.2rem;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+/* Form */
+
+.certificate-form {
+  padding: 24px;
+}
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+
+  border: 1px solid var(--border);
+
+  background: var(--bg-secondary);
+
+  color: var(--text-primary);
+
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-group small {
+  color: #ef4444;
+}
+
+/* Modal actions */
+
+.modal-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding-top: 10px;
+}
+
+.cancel-button {
+  background: transparent;
+
+  color: var(--text-secondary);
+}
+
+.cancel-button:hover {
+  color: var(--text-primary);
+
+  border-color: var(--text-primary);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-certificates-page {
+    padding: 20px;
+  }
+
+  .admin-page-header {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .admin-page-header .admin-primary-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .certificate-actions {
+    flex-direction: column;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 100%;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}
