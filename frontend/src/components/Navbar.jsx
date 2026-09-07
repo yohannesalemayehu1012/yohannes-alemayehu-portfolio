@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaTimes, FaBriefcase, FaEnvelope } from "react-icons/fa";
+import { FaBars, FaTimes, FaFileAlt } from "react-icons/fa";
 
 import { useSettings } from "../context/settings-context";
 import BrandMark from "./BrandMark";
@@ -57,15 +57,22 @@ const Navbar = () => {
             </a>
           ))}
 
-          <a href="#projects" onClick={() => setMenuOpen(false)}>
-            <FaBriefcase aria-hidden="true" />
-            View My Work
-          </a>
-
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            <FaEnvelope aria-hidden="true" />
-            Contact Me
-          </a>
+          {settings?.resume_url ? (
+            <a
+              href={settings.resume_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+            >
+              <FaFileAlt aria-hidden="true" />
+              Resume
+            </a>
+          ) : (
+            <a href="/resume" onClick={() => setMenuOpen(false)}>
+              <FaFileAlt aria-hidden="true" />
+              Resume
+            </a>
+          )}
 
           <a href="/admin/login" onClick={() => setMenuOpen(false)}>
             Admin
