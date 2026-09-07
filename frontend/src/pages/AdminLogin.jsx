@@ -20,7 +20,7 @@ const AdminLogin = () => {
 
   const [loading, setLoading] = useState(false);
 
-  // If already authenticated, go directly to admin dashboard
+  // Redirect authenticated users to admin dashboard
   if (isAuthenticated) {
     return <Navigate to="/admin" replace />;
   }
@@ -35,7 +35,7 @@ const AdminLogin = () => {
     }));
   };
 
-  // Handle login
+  // Handle login form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -51,8 +51,6 @@ const AdminLogin = () => {
     }
 
     // Validate password
-    // No minimum-length restriction.
-    // Therefore passwords such as "1012" are allowed.
     if (!formData.password) {
       toast.error("Please enter your password.");
       return;
@@ -61,18 +59,20 @@ const AdminLogin = () => {
     try {
       setLoading(true);
 
-      const result = await loginAdmin({
-        email: formData.email.trim(),
-        password: formData.password,
-      });
+      // IMPORTANT:
+      // loginAdmin expects (email, password)
+      const result = await loginAdmin(
+        formData.email.trim(),
+        formData.password
+      );
 
       if (result.success) {
-        // Store authenticated user and JWT token
+        // Save user and JWT token
         login(result.user, result.token);
 
         toast.success("Login successful!");
 
-        // Go to admin dashboard
+        // Redirect to admin dashboard
         navigate("/admin");
       } else {
         toast.error(result.message || "Login failed.");
@@ -118,11 +118,15 @@ const AdminLogin = () => {
             <FaLock />
           </div>
 
-          <span className="section-label">ADMIN AREA</span>
+          <span className="section-label">
+            ADMIN AREA
+          </span>
 
           <h1>Welcome Back</h1>
 
-          <p>Sign in to manage your portfolio.</p>
+          <p>
+            Sign in to manage your portfolio.
+          </p>
         </div>
 
         {/* Login Form */}
@@ -133,7 +137,9 @@ const AdminLogin = () => {
         >
           {/* Email */}
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              Email
+            </label>
 
             <div className="admin-input-wrapper">
               <FaEnvelope />
@@ -153,7 +159,9 @@ const AdminLogin = () => {
 
           {/* Password */}
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              Password
+            </label>
 
             <div className="admin-input-wrapper">
               <FaLock />
@@ -171,7 +179,7 @@ const AdminLogin = () => {
             </div>
           </div>
 
-          {/* Login Button */}
+          {/* Submit */}
           <button
             type="submit"
             className="admin-login-button"
@@ -188,8 +196,11 @@ const AdminLogin = () => {
           </button>
         </form>
 
-        {/* Back */}
-        <a href="/" className="back-to-portfolio">
+        {/* Back to portfolio */}
+        <a
+          href="/"
+          className="back-to-portfolio"
+        >
           ← Back to Portfolio
         </a>
       </motion.div>
