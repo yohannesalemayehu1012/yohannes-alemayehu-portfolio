@@ -11,7 +11,7 @@ export const getMessages = async () => {
 };
 
 export const updateMessage = async (id, messageData) => {
-  const response = await api.put(`/messages/${id}`, messageData);
+  const response = await api.patch(`/messages/${id}/status`, messageData);
   return response.data;
 };
 

@@ -6,11 +6,14 @@ export const getProjects = async () => {
 };
 
 export const getProjectBySlug = async (slug) => {
-  const response = await api.get(`/projects/${slug}`);
+  const response = await api.get(`/projects/slug/${slug}`);
   return response.data;
 };
 
-export const getProjectById = getProjectBySlug;
+export const getProjectById = async (id) => {
+  const response = await api.get(`/projects/${id}`);
+  return response.data;
+};
 
 export const createProject = async (projectData) => {
   const response = await api.post("/projects", projectData);
