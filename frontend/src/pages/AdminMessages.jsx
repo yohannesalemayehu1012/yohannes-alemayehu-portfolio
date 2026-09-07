@@ -238,6 +238,7 @@ const AdminMessages = () => {
                 <tr>
                   <th>Sender</th>
                   <th>Subject</th>
+                  <th>Message</th>
                   <th>Date</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -261,6 +262,15 @@ const AdminMessages = () => {
                     </td>
 
                     <td>{message.subject || "No subject"}</td>
+
+                    <td>
+                      <p
+                        className="message-preview"
+                        title={message.message || "No message"}
+                      >
+                        {message.message || "No message"}
+                      </p>
+                    </td>
 
                     <td>{formatDate(message.created_at)}</td>
 

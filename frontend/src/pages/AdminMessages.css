@@ -1,365 +1,375 @@
 .admin-messages-page {
-    width: 100%;
+  width: 100%;
 }
 
 .admin-page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
 }
 
 .admin-page-eyebrow {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .admin-page-header h1 {
-    font-size: 2rem;
-    margin-bottom: 8px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 .admin-page-header p {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 /* Statistics */
 
 .message-stat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .message-stat-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 22px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
 }
 
 .message-stat-icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    background: rgba(245, 158, 11, 0.1);
-    color: var(--accent);
-    font-size: 1.2rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--accent);
+  font-size: 1.2rem;
 }
 
 .message-stat-card span {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-secondary);
-    font-size: 0.85rem;
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
 }
 
 .message-stat-card strong {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 /* Container */
 
 .messages-container {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
 }
 
 .messages-table-wrapper {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .messages-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 850px;
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1050px;
 }
 
 .messages-table th {
-    padding: 17px 20px;
-    text-align: left;
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  padding: 17px 20px;
+  text-align: left;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .messages-table td {
-    padding: 18px 20px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
+  padding: 18px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
 }
 
 .messages-table tbody tr {
-    transition: background 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .messages-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .messages-table .message-unread {
-    background: rgba(245, 158, 11, 0.035);
+  background: rgba(245, 158, 11, 0.035);
 }
 
 .message-sender {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .message-sender strong {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .message-sender span {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.message-preview {
+  width: 280px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Status */
 
 .message-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
 .message-status.unread {
-    background: rgba(245, 158, 11, 0.12);
-    color: var(--accent);
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent);
 }
 
 .message-status.read {
-    background: rgba(148, 163, 184, 0.1);
-    color: var(--text-secondary);
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-secondary);
 }
 
 /* Actions */
 
 .message-actions {
-    display: flex;
-    gap: 7px;
+  display: flex;
+  gap: 7px;
 }
 
 .message-actions button {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
 }
 
 .message-actions button:hover {
-    color: var(--text-primary);
-    border-color: var(--accent);
+  color: var(--text-primary);
+  border-color: var(--accent);
 }
 
 .message-delete-btn:hover {
-    color: #ef4444 !important;
-    border-color: #ef4444 !important;
+  color: #ef4444 !important;
+  border-color: #ef4444 !important;
 }
 
 /* Empty */
 
 .messages-empty {
-    padding: 70px 20px;
-    text-align: center;
+  padding: 70px 20px;
+  text-align: center;
 }
 
 .messages-empty > svg {
-    margin-bottom: 18px;
-    color: var(--text-secondary);
-    font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: var(--text-secondary);
+  font-size: 2.5rem;
 }
 
 .messages-empty h2 {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .messages-empty p {
-    color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 /* Loading */
 
 .admin-messages-loading {
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-secondary);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
 }
 
 /* Modal */
 
 .message-modal-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .message-modal {
-    width: min(700px, 100%);
-    max-height: 90vh;
-    overflow-y: auto;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  width: min(700px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .message-modal-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 24px;
-    border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
 }
 
 .message-modal-header span {
-    color: var(--accent);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .message-modal-header h2 {
-    margin-top: 6px;
-    font-size: 1.4rem;
+  margin-top: 6px;
+  font-size: 1.4rem;
 }
 
 .message-modal-header button {
-    width: 38px;
-    height: 38px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: transparent;
-    color: var(--text-secondary);
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
 }
 
 .message-modal-header button:hover {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .message-modal-body {
-    padding: 24px;
+  padding: 24px;
 }
 
 .message-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
 }
 
 .message-detail span,
 .message-content > span {
-    color: var(--text-secondary);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .message-detail strong,
 .message-detail a {
-    color: var(--text-primary);
+  color: var(--text-primary);
 }
 
 .message-detail a:hover {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 .message-content {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .message-content > span {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .message-content p {
-    padding: 18px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    white-space: pre-wrap;
+  padding: 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  white-space: pre-wrap;
 }
 
 .message-modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    padding: 20px 24px;
-    border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
 }
 
 .message-modal-footer button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 .message-modal-status {
-    border: 1px solid var(--border);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .message-modal-delete {
-    border: none;
-    background: #dc2626;
-    color: white;
+  border: none;
+  background: #dc2626;
+  color: white;
 }
 
 @media (max-width: 768px) {
-    .message-stat-grid {
-        grid-template-columns: 1fr;
-    }
+  .message-stat-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .admin-page-header h1 {
-        font-size: 1.6rem;
-    }
+  .admin-page-header h1 {
+    font-size: 1.6rem;
+  }
 
-    .message-modal-footer {
-        flex-direction: column;
-    }
+  .message-modal-footer {
+    flex-direction: column;
+  }
 
-    .message-modal-footer button {
-        justify-content: center;
-    }
+  .message-modal-footer button {
+    justify-content: center;
+  }
 }
