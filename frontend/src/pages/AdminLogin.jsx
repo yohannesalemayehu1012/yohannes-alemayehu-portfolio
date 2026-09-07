@@ -20,10 +20,12 @@ const AdminLogin = () => {
 
   const [loading, setLoading] = useState(false);
 
+  // If already authenticated, go directly to admin dashboard
   if (isAuthenticated) {
     return <Navigate to="/admin" replace />;
   }
 
+  // Handle input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -33,9 +35,11 @@ const AdminLogin = () => {
     }));
   };
 
+  // Handle login
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Validate email
     if (!formData.email.trim()) {
       toast.error("Please enter your email.");
       return;
@@ -46,26 +50,29 @@ const AdminLogin = () => {
       return;
     }
 
+    // Validate password
+    // No minimum-length restriction.
+    // Therefore passwords such as "1012" are allowed.
     if (!formData.password) {
       toast.error("Please enter your password.");
-      return;
-    }
-
-    if (formData.password.length < 6) {
-      toast.error("Password must be at least 6 characters.");
       return;
     }
 
     try {
       setLoading(true);
 
-      const result = await loginAdmin(formData);
+      const result = await loginAdmin({
+        email: formData.email.trim(),
+        password: formData.password,
+      });
 
       if (result.success) {
+        // Store authenticated user and JWT token
         login(result.user, result.token);
 
         toast.success("Login successful!");
 
+        // Go to admin dashboard
         navigate("/admin");
       } else {
         toast.error(result.message || "Login failed.");
@@ -75,7 +82,7 @@ const AdminLogin = () => {
 
       toast.error(
         error.response?.data?.message ||
-          "Unable to connect to the login server.",
+          "Unable to connect to the login server."
       );
     } finally {
       setLoading(false);
@@ -90,6 +97,7 @@ const AdminLogin = () => {
         path="/admin/login"
         noindex
       />
+
       <motion.div
         className="admin-login-card"
         initial={{
@@ -104,6 +112,7 @@ const AdminLogin = () => {
           duration: 0.6,
         }}
       >
+        {/* Header */}
         <div className="admin-login-header">
           <div className="admin-login-icon">
             <FaLock />
@@ -116,7 +125,13 @@ const AdminLogin = () => {
           <p>Sign in to manage your portfolio.</p>
         </div>
 
-        <form className="admin-login-form" onSubmit={handleSubmit}>
+        {/* Login Form */}
+        <form
+          className="admin-login-form"
+          onSubmit={handleSubmit}
+          noValidate
+        >
+          {/* Email */}
           <div className="form-group">
             <label htmlFor="email">Email</label>
 
@@ -136,6 +151,7 @@ const AdminLogin = () => {
             </div>
           </div>
 
+          {/* Password */}
           <div className="form-group">
             <label htmlFor="password">Password</label>
 
@@ -150,12 +166,12 @@ const AdminLogin = () => {
                 onChange={handleChange}
                 placeholder="Admin password"
                 autoComplete="current-password"
-                minLength={6}
                 required
               />
             </div>
           </div>
 
+          {/* Login Button */}
           <button
             type="submit"
             className="admin-login-button"
@@ -172,6 +188,7 @@ const AdminLogin = () => {
           </button>
         </form>
 
+        {/* Back */}
         <a href="/" className="back-to-portfolio">
           ← Back to Portfolio
         </a>
