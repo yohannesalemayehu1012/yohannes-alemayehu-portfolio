@@ -20,9 +20,11 @@ const messageRoutes = require("./routes/messageRoutes");
 const socialRoutes = require("./routes/socialRoutes");
 const settingRoutes = require("./routes/settingRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
-const errorMiddleware = require("./middleware/errorMiddleware");
 const chatbotRoutes = require("./routes/chatbotRoutes");
+
+const errorMiddleware = require("./middleware/errorMiddleware");
 const { generalLimiter } = require("./middleware/rateLimitMiddleware");
+
 // =====================================================
 // APP
 // =====================================================
@@ -35,27 +37,58 @@ const PORT = process.env.PORT || 5000;
 // MIDDLEWARE
 // =====================================================
 
+// Allowed frontend origins
 const allowedOrigins = [
   "http://localhost:5173",
   process.env.FRONTEND_URL,
 ].filter(Boolean);
 
+// Security
 app.use(helmet());
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+
+// CORS
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }),
+);
+
+// Rate limiting
 app.use(generalLimiter);
 
+// Request body parsing
 app.use(express.json({ limit: "100kb" }));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(
+  express.urlencoded({
+    extended: true,
+    limit: "100kb",
+  }),
+);
 
 // =====================================================
-// HOME
+// HOME / ROOT
 // =====================================================
 
 app.get("/", (req, res) => {
-  res.json({
+  res.status(200).json({
     success: true,
     message: "Yohannes Portfolio API is running 🚀",
+    environment: process.env.NODE_ENV || "development",
+  });
+});
+
+// =====================================================
+// HEALTH CHECK
+// =====================================================
+
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Portfolio API is healthy",
+    environment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString(),
   });
 });
 
@@ -115,7 +148,11 @@ app.use("/api/social-links", socialRoutes);
 
 // Site Settings
 app.use("/api/settings", settingRoutes);
+
+// Dashboard
 app.use("/api/dashboard", dashboardRoutes);
+
+// AI Chatbot
 app.use("/api/chatbot", chatbotRoutes);
 
 // =====================================================
@@ -129,20 +166,25 @@ app.use((req, res) => {
   });
 });
 
+// =====================================================
+// GLOBAL ERROR HANDLER
+// =====================================================
+
 app.use(errorMiddleware);
 
 // =====================================================
 // SERVER
 // =====================================================
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`
 ========================================
 🚀 Yohannes Portfolio API
 ========================================
 Server: http://localhost:${PORT}
-Database: PostgreSQL
 Environment: ${process.env.NODE_ENV || "development"}
+Database: PostgreSQL
+Host: 0.0.0.0
 ========================================
-    `);
+  `);
 });
