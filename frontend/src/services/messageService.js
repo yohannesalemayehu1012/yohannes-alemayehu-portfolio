@@ -1,60 +1,25 @@
 import api from "./api";
 
-// Public
-export const sendMessage = async (data) => {
-    const response = await api.post("/messages", data);
-
-    return response.data;
+export const sendMessage = async (messageData) => {
+  const response = await api.post("/messages", messageData);
+  return response.data;
 };
 
-// Admin
-export const getMessages = async (token) => {
-    const response = await api.get("/messages", {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-
-    return response.data;
+export const getMessages = async () => {
+  const response = await api.get("/messages");
+  return response.data;
 };
 
-// Admin
-export const getMessageById = async (id, token) => {
-    const response = await api.get(`/messages/${id}`, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-
-    return response.data;
+export const updateMessage = async (id, messageData) => {
+  const response = await api.put(`/messages/${id}`, messageData);
+  return response.data;
 };
 
-// Admin
-export const updateMessageStatus = async (
-    id,
-    status,
-    token
-) => {
-    const response = await api.patch(
-        `/messages/${id}/status`,
-        { status },
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-    );
-
-    return response.data;
+export const updateMessageStatus = async (id, status) => {
+  return updateMessage(id, { status });
 };
 
-// Admin
-export const deleteMessage = async (id, token) => {
-    const response = await api.delete(`/messages/${id}`, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-
-    return response.data;
+export const deleteMessage = async (id) => {
+  const response = await api.delete(`/messages/${id}`);
+  return response.data;
 };
