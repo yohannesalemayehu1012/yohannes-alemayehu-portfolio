@@ -19,6 +19,7 @@ import { toast } from "react-hot-toast";
 
 import useAuth from "../hooks/useAuth";
 import SEO from "../components/SEO";
+import BrandMark from "../components/BrandMark";
 
 const AdminLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -114,7 +115,7 @@ const AdminLayout = () => {
       <aside className={sidebarOpen ? "admin-sidebar active" : "admin-sidebar"}>
         <div className="admin-sidebar-header">
           <div className="admin-logo">
-            YA<span>.</span>
+            <BrandMark />
           </div>
 
           <p>Portfolio Admin</p>

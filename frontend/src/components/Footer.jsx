@@ -13,6 +13,7 @@ import {
 
 import { getSocialLinks } from "../services/socialService";
 import { useSettings } from "../context/settings-context";
+import BrandMark from "./BrandMark";
 
 const Footer = () => {
   const [socialLinks, setSocialLinks] = useState([]);
@@ -125,7 +126,7 @@ const Footer = () => {
               className="footer-logo"
               aria-label={settings?.site_name || "Home"}
             >
-              YA<span>.</span>
+              <BrandMark />
             </a>
 
             <p>

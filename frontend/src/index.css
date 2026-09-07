@@ -135,13 +135,38 @@ img {
 }
 
 .logo {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
 }
 
-.logo span {
-  color: var(--accent);
+.brand-mark {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--bg-primary);
+  background: var(--accent);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  border-radius: 12px 12px 12px 3px;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.18);
+  font-size: 1.15rem;
+  transform: rotate(-4deg);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.brand-mark svg {
+  transform: rotate(4deg);
+}
+
+.logo:hover .brand-mark,
+.footer-logo:hover .brand-mark {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.28);
 }
 
 .nav-menu {
@@ -2014,10 +2039,6 @@ img {
   margin-bottom: 18px;
 }
 
-.footer-logo span {
-  color: var(--accent);
-}
-
 .footer-brand p {
   color: var(--text-secondary);
   line-height: 1.8;
@@ -2383,14 +2404,7 @@ img {
 }
 
 .admin-logo {
-  font-family: "Space Grotesk", sans-serif;
-
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.admin-logo span {
-  color: var(--accent);
+  display: inline-flex;
 }
 
 .admin-sidebar-header p {

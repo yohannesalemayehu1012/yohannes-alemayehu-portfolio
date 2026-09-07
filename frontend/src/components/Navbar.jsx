@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import { useSettings } from "../context/settings-context";
+import BrandMark from "./BrandMark";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,7 @@ const Navbar = () => {
           className="logo"
           aria-label={settings?.site_name || "Home"}
         >
-          YA<span>.</span>
+          <BrandMark />
         </a>
 
         {/* ==============================
@@ -70,6 +71,10 @@ const Navbar = () => {
               Resume
             </a>
           )}
+
+          <a href="/admin/login" onClick={() => setMenuOpen(false)}>
+            Admin
+          </a>
         </nav>
 
         {/* ==============================
