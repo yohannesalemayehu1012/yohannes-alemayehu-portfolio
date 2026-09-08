@@ -63,6 +63,8 @@ const Home = () => {
               alt="Yohannes Alemayehu"
               width="600"
               height="600"
+              loading="eager"
+              fetchPriority="high"
             />
           </motion.div>
         </div>

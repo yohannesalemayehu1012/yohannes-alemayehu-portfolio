@@ -36,6 +36,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: var(--bg-primary);
   color: var(--text-primary);
 }
@@ -92,12 +93,12 @@ img {
 }
 
 .container {
-  width: min(1200px, 92%);
+  width: min(1200px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
 .section {
-  padding: 100px 0;
+  padding: clamp(72px, 9vw, 110px) 0;
 }
 
 .section-title {
@@ -132,6 +133,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .logo {
@@ -228,7 +230,7 @@ img {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: min(860px, 100vh);
 
   display: flex;
   align-items: center;
@@ -300,6 +302,7 @@ img {
 
 .hero-image-wrapper img {
   width: min(100%, 430px);
+  max-width: 430px;
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center;
@@ -353,7 +356,8 @@ img {
   font-size: clamp(3rem, 7vw, 6rem);
   line-height: 1.05;
 
-  letter-spacing: -2px;
+  letter-spacing: -1px;
+  overflow-wrap: anywhere;
 }
 
 .hero h1 span {
@@ -772,6 +776,7 @@ img {
   height: 100%;
 
   object-fit: cover;
+  object-position: center;
 
   transition: transform 0.5s;
 }
@@ -1041,7 +1046,8 @@ img {
   width: 100%;
   height: auto;
   max-height: 600px;
-  object-fit: cover;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .project-details-content {
@@ -1644,13 +1650,17 @@ img {
   width: 100%;
   height: 210px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
   background: var(--bg-primary);
 }
 
 .certificate-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.4s ease;
 }
 
@@ -2805,5 +2815,120 @@ img {
 
   .section-subtitle {
     font-size: 0.9rem;
+  }
+}
+
+/* Public layout refinements */
+
+@media (max-width: 1100px) {
+  .hero-layout {
+    gap: 36px;
+  }
+
+  .hero-image-wrapper img {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-site-name {
+    margin-right: auto;
+    color: var(--text-primary);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .nav-menu {
+    border-top: 1px solid var(--border);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 112px 0 76px;
+  }
+
+  .hero-layout {
+    gap: 30px;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 10vw, 3.5rem);
+  }
+
+  .hero-description {
+    margin: 22px auto 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons,
+  .social-links {
+    justify-content: center;
+  }
+
+  .project-image,
+  .project-image-placeholder {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-content {
+    padding: 25px;
+  }
+
+  .project-content h3 {
+    font-size: 1.45rem;
+  }
+
+  .section-heading {
+    margin-bottom: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-site-name {
+    max-width: 155px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-menu {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .hero-image-wrapper img {
+    width: min(78vw, 320px);
+  }
+
+  .hero-buttons {
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .highlight-card,
+  .education-card {
+    padding: 20px;
+  }
+
+  .certificate-image {
+    height: 190px;
   }
 }
